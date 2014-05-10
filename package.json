@@ -1,0 +1,26 @@
+{
+  "name": "#appName",
+  "version": "0.0.1",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kshreve/#appName.git"
+  },
+  "keywords": [
+    "heroku",
+    "nodejs",
+    "angularjs",
+    "bootstrap"
+  ],
+  "author": "kshreve",
+  "bugs": {
+    "url": "https://github.com/kshreve/#appName/issues"
+  },
+  "engines": {
+    "node": "0.8.x"
+  },
+   "dependencies": {
+    "connect": "2.4.2",
+    "express": "3.x"
+   }
+}
