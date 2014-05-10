@@ -1,27 +1,26 @@
-<div class="span9">
-    <div style="text-align: center; width: 100%;">
-        <h1>Grow the web with referrals!</h1>
-        <form id="submitForm">
-            <span>Add a link:</span><input type="text"></input><button class="btn btn-success btn-large  button" ng-show="!referrals.editing" type="submit">Add</button>
-            <button class="btn btn-success btn-large button" ng-show="referrals.editing">Save</button><button class="btn btn-warning btn-large button" ng-show="referrals.editing">Cancel</button>
-        </form>
-        <table class="table table-striped table-bordered table-condensed">
-            <thead>
-                <tr>
-                    <th>Link Title</th>
-                    <th>Clicks</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="referral in referrals">
-                    <td>{{referral.Name}}</td>
-                    <td>{{referral.Clicks}}</td>
-                    <td ng-click="Edit()">Edit</td>
-                    <td ng-click="Delete()">Delete</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<div style="text-align: center; width: 100%;">
+    <h1>Grow the web with referrals!</h1>
+    <form id="submitForm">
+        <span>Add a link:</span><input id="input" type="text"></input><button class="btn btn-success btn-large  button" ng-show="!referrals.editing" type="submit" ng-click="Add()">Add</button>
+        <button class="btn btn-success btn-large button" ng-show="referrals.editing">Save</button><button class="btn btn-warning btn-large button" ng-show="referrals.editing">Cancel</button>
+        <span class="text-danger large" ng-show="errorMsg">{{errorMsg}}</span>
+    </form>
+    <table class="table table-striped table-bordered table-condensed">
+        <thead>
+            <tr>
+                <th>Link Title</th>
+                <th>Clicks</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="referral in referrals | filter:{Active: 1}">
+                <td><a href="#/{{referral.Name}}">{{referral.Name}}</a></td>
+                <td>{{referral.Clicks}}</td>
+                <td><a ng-click="Edit(referral)">Edit</a></td>
+                <td><a ng-click="Remove(referral)">Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
