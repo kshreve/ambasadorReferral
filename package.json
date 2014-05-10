@@ -1,10 +1,10 @@
 {
-  "name": "#appName",
+  "name": "ambassadorReferral",
   "version": "0.0.1",
   "description": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kshreve/#appName.git"
+    "url": "https://github.com/kshreve/ambassadorReferral.git"
   },
   "keywords": [
     "heroku",
@@ -14,7 +14,7 @@
   ],
   "author": "kshreve",
   "bugs": {
-    "url": "https://github.com/kshreve/#appName/issues"
+    "url": "https://github.com/kshreve/ambassadorReferral/issues"
   },
   "engines": {
     "node": "0.8.x"

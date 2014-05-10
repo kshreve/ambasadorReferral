@@ -1,1 +1,1 @@
-//angular.module('#appNameServices',['ngResource'])
+//angular.module('ambassadorReferralServices',['ngResource'])

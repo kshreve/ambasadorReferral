@@ -1,3 +1,5 @@
-function HomeCtrl($scope, $cookies, $location, $http) {
+function HomeCtrl($scope, $location, $http) {
+    $scope.referrals=[];
     
+    $http.get(
 }

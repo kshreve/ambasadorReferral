@@ -1,12 +1,9 @@
-.wrapper
+.button
 {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    margin: 0 auto -43px;
+    margin-left:2px;
 }
 
-.push
+#submitForm
 {
-    height: 63px;
+    margin: 5px;
 }

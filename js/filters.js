@@ -1,1 +1,1 @@
-//angular.module('#appNameFilters', [])
+//angular.module('ambassadorReferralFilters', [])

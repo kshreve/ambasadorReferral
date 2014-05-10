@@ -1,4 +1,4 @@
-angular.module('#appName', ['ngRoute']). //'#appNameServices', '#appNameFilters']).
+angular.module('ambassadorReferral', ['ngRoute']). //'ambassadorReferralServices', 'ambassadorReferralFilters']).
     config(['$routeProvider', function($routeProvider) {
         $routeProvider.
             when('/', {templateUrl: 'partials/home.html', controller: HomeCtrl})
