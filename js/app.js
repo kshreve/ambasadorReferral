@@ -2,5 +2,6 @@ angular.module('ambassadorReferral', ['ngRoute']). //'ambassadorReferralServices
     config(['$routeProvider', function($routeProvider) {
         $routeProvider.
             when('/', {templateUrl: 'partials/home.html', controller: HomeCtrl})
-            .otherwise({redirectTo: '/'});
+            .when('/landing/',{templateUrl: 'partials/landing.html', controller: LandingCtrl})
+            .when('/:param1',{redirectTo: function(routeParams){ return "/landing/?link="+routeParams.param1;}})
     }])

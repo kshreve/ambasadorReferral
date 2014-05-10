@@ -1,8 +1,15 @@
 <div style="text-align: center; width: 100%;">
     <h1>Grow the web with referrals!</h1>
     <form id="submitForm">
-        <span>Add a link:</span><input id="input" type="text"></input><button class="btn btn-success btn-large  button" ng-show="!referrals.editing" type="submit" ng-click="Add()">Add</button>
-        <button class="btn btn-success btn-large button" ng-show="referrals.editing">Save</button><button class="btn btn-warning btn-large button" ng-show="referrals.editing">Cancel</button>
+        <div ng-show="!editThisReferral">
+            <span>Add a link:</span><input id="input" type="text"></input>
+            <button class="btn btn-success btn-large  button" ng-show="!referrals.editing" type="submit" ng-click="Add()">Add</button>
+        </div>
+        <div ng-show="editThisReferral">
+            <span>Editing a link:</span><input id="editInput" value="{{editThisReferral.Name}}"></input>
+            <button class="btn btn-success btn-large button" ng-Click="Save()">Save</button>
+            <button class="btn btn-warning btn-large button" ng-Click="CancelEdit()">Cancel</button>
+        </div>
         <span class="text-danger large" ng-show="errorMsg">{{errorMsg}}</span>
     </form>
     <table class="table table-striped table-bordered table-condensed">
