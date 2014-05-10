@@ -27,7 +27,7 @@ function HomeCtrl($scope, $location, $http) {
     $scope.referrals=[];
     $scope.sortColumn='Clicks';
     $scope.reverseSort = false;
-    $scope.editThisReferral;
+    $scope.editThisReferral=null;
     
     $scope.updateList = function() {
         $http.get(getURL).success(function(data, status, headers, config){
@@ -87,21 +87,30 @@ function HomeCtrl($scope, $location, $http) {
     }
     
     $scope.Save = function() {
-        var toUpdate = $scope.editThisReferral;
+        var toUpdate={};
+
         var text = document.getElementById('editInput').value;
-       
         if(isUniqueName($scope,text))
         {
-            toUpdate.Name = text;
-            //baseURL+toUpdate._id.$oid+apiKey,
-            //$http.put(baseURL+toUpdate._id.$oid+apiKey,JSON.stringify(toUpdate))
-            $http.put(baseURL+toUpdate._id.$oid+apiKey,JSON.stringify(toUpdate)).success(function(data){
-                console.log("successfully saved items");
-                $scope.errorMsg = "";
-                $scope.editThisReferral = null;
-                document.getElementById('input').focus();
-                $scope.updateList();
-            }).error(function(data,status,headers,config) {console.log("error saving")});
+            $http.get(getURL).success(function(data){
+                for(var i=0;i<data.length;i++)
+                {
+                    if(data[i].Id == $scope.editThisId)
+                    {           
+                        toUpdate = data[i];
+                        toUpdate.Name = text;
+                        $http.put(baseURL+toUpdate._id.$oid+apiKey,JSON.stringify(toUpdate)).success(function(data) {
+                            console.log("successfully saved items");
+                            $scope.errorMsg = "";
+                            $scope.editThisReferral = null;
+                            document.getElementById('input').focus();
+                            $scope.updateList();
+                        }).error(function(data,status,headers,config) {
+                            console.log("error saving")
+                        });
+                    }
+                }
+            });
         }
         else
         {
@@ -126,7 +135,9 @@ function HomeCtrl($scope, $location, $http) {
     }
     
     $scope.Edit = function(toEdit) {
+        $scope.editThisId = toEdit.Id;
         $scope.editThisReferral = toEdit;
+        document.getElementById('editInput').focus();
     }
     
     $scope.CancelEdit = function () {
