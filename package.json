@@ -21,6 +21,7 @@
   },
    "dependencies": {
     "connect": "2.4.2",
-    "express": "3.x"
+    "express": "3.x",
+    "debug": "*"
    }
 }
